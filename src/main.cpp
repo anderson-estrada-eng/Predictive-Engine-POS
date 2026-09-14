@@ -15,7 +15,7 @@ double calculateFreeCapacity(double demand_tickets) {
 }
 
 // Módulo 2: Validación de Zona de Delivery (Antes: Operación del Círculo)
-bool isDeliveryInZone(double client_x, double rest_x, double client_y, double rest_y, double delivery_radius) {
+bool isDeliveryInZone(double client_x, double client_y, double rest_x, double rest_y, double delivery_radius) {
     // RETO LOGICO: Cambiar el "==" por "<=" para cubrir TODA el área interna del radio.
     bool result = ((std::pow(client_x - rest_x, 2)) + (std::pow(client_y - rest_y, 2))) <= (std::pow(delivery_radius, 2));
     return result;
@@ -35,26 +35,35 @@ int main() {
         
         std::cin >> choice; 
         
-        // TODO: Si el usuario ingresa una letra, cin se rompe. (Deuda técnica obligatoria).
+        // TODO: Si el usuario ingresa una letra, std::cin se rompe. (Deuda técnica obligatoria).
 
         if (choice == 1) {
             double demand;
             std::cout << "Ingresa la demanda del turno: ";
             std::cin >> demand;
             
-            // TU TURNO: 
-            // 1. Llama a la función calculateFreeCapacity pasándole 'demand'
-            // 2. Imprime el resultado con std::cout
-            
+            double holgura = calculateFreeCapacity(demand);
+            std::cout << "Holgura operativa: " << holgura << std::endl;
         } 
         else if (choice == 2) {
             double cx, cy, rx, ry, rad;
             
-            // TU TURNO: 
-            // 1. Pide al usuario (cout) las coordenadas del cliente, restaurante y radio.
-            // 2. Captura las 5 variables usando std::cin.
-            // 3. Usa un condicional if() llamando a isDeliveryInZone. 
-            // 4. Si es true imprime "DENTRO de zona". Si es false, "FUERA de zona".
+            std::cout<<"Escribe las coordenadas del cliente: ";
+            std::cin>>cx>>cy;
+
+            std::cout<<"Escribe las coordenadas del restaurante: ";
+            std::cin>>rx>>ry;
+
+            std::cout<<"Escribe el radio: ";
+            std::cin>>rad;
+        
+        if(isDeliveryInZone(cx,cy,rx,ry,rad)){
+            std::cout<<"Está dentro de la zona";
+        }
+        else{
+            std::cout<<"Fuera de Zona";
+        }
+        
             
         }
         else if (choice == 0) {
