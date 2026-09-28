@@ -1,76 +1,77 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
-// 1. CONSTANTE GLOBAL (El "9 mágico" convertido en regla de negocio)
+// 1. GLOBAL CONSTANT (The "magic 9" turned into a business rule)
 const double PEAK_CAPACITY = 9.0;
 
-// --- MÓDULOS DE NEGOCIO ---
+// --- BUSINESS MODULES ---
 
-// Módulo 1: Holgura Operativa (Antes: Constante C)
+// Module 1: Operational Slack (Formerly: Constant C)
 double calculateFreeCapacity(double demand_tickets) {
     double half = demand_tickets / 2.0;
-    // Usa la constante PEAK_CAPACITY en lugar del número 9 aislado
+    // Uses PEAK_CAPACITY instead of the isolated number 9
     double c = PEAK_CAPACITY - (half * half); 
     return c;
 }
 
-// Módulo 2: Validación de Zona de Delivery (Antes: Operación del Círculo)
+// Module 2: Delivery Zone Validation (Formerly: Circle Operation)
 bool isDeliveryInZone(double client_x, double client_y, double rest_x, double rest_y, double delivery_radius) {
-    // RETO LOGICO: Cambiar el "==" por "<=" para cubrir TODA el área interna del radio.
+    // LOGIC CHALLENGE: Change "==" to "<=" to cover the ENTIRE area inside the radius.
     bool result = ((std::pow(client_x - rest_x, 2)) + (std::pow(client_y - rest_y, 2))) <= (std::pow(delivery_radius, 2));
     return result;
 }
 
-// --- MOTOR PRINCIPAL (MENÚ INTERACTIVO) ---
+// --- MAIN ENGINE (INTERACTIVE MENU) ---
 
 int main() {
     int choice = -1; 
     
     while (choice != 0) {
-        std::cout << "\n=== Motor Predictivo POS ===" << std::endl;
-        std::cout << "1. Calcular holgura operativa" << std::endl;
-        std::cout << "2. Validar zona de entrega" << std::endl;
-        std::cout << "0. Salir" << std::endl;
-        std::cout << "Elige una opcion: ";
+        std::cout << "\n=== Predictive POS Engine ===" << std::endl;
+        std::cout << "1. Calculate operational slack" << std::endl;
+        std::cout << "2. Validate delivery zone" << std::endl;
+        std::cout << "0. Exit" << std::endl;
+        std::cout << "Choose an option: ";
         
         std::cin >> choice; 
         
-        // TODO: Si el usuario ingresa una letra, std::cin se rompe. (Deuda técnica obligatoria).
+        // TODO: If the user enters a letter, std::cin breaks. (Mandatory technical debt).
 
         if (choice == 1) {
             double demand;
-            std::cout << "Ingresa la demanda del turno: ";
+            std::cout << "Enter shift demand: ";
             std::cin >> demand;
             
-            double holgura = calculateFreeCapacity(demand);
-            std::cout << "Holgura operativa: " << holgura << std::endl;
+            double freeCapacity = calculateFreeCapacity(demand);
+            std::cout << "Operational slack: " << freeCapacity << std::endl;
         } 
         else if (choice == 2) {
             double cx, cy, rx, ry, rad;
             
-            std::cout<<"Escribe las coordenadas del cliente: ";
+            std::cout<<"Enter client coordinates: ";
             std::cin>>cx>>cy;
 
-            std::cout<<"Escribe las coordenadas del restaurante: ";
+            std::cout<<"Enter restaurant coordinates: ";
             std::cin>>rx>>ry;
 
-            std::cout<<"Escribe el radio: ";
+            std::cout<<"Enter radius: ";
             std::cin>>rad;
         
         if(isDeliveryInZone(cx,cy,rx,ry,rad)){
-            std::cout<<"Está dentro de la zona";
+            std::cout<<"Inside the zone";
         }
         else{
-            std::cout<<"Fuera de Zona";
+            std::cout<<"Outside zone";
         }
         
             
         }
         else if (choice == 0) {
-            std::cout << "Apagando motor..." << std::endl;
+            std::cout << "Shutting down engine..." << std::endl;
         } 
         else {
-            std::cout << "Error: Opcion no valida. Intenta de nuevo." << std::endl;
+            std::cout << "Error: Invalid option. Try again." << std::endl;
         }
     }
     return 0; 
