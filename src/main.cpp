@@ -6,6 +6,7 @@
 const double PEAK_CAPACITY = 9.0;
 
 // --- BUSINESS MODULES ---
+//We use std::vector<double>
 
 // Module 1: Operational Slack (Formerly: Constant C)
 double calculateFreeCapacity(double demand_tickets) {
@@ -75,4 +76,16 @@ int main() {
         }
     }
     return 0; 
+
+
+
+
 }
+
+
+double readPolynomial;
+double variable;
+
+int variable(n);
+
+std::cout << "Degree of the Polynomial: " << readPolynomial << std::endl;
