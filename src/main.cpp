@@ -25,15 +25,16 @@ bool isDeliveryInZone(double client_x, double client_y, double rest_x, double re
 
 
 std::vector<double> readPolynomial(){
-    std::cout<< "Degree of the Polynomial:"<< \n;
+    std::cout<< "Degree of the Polynomial: ";
     int n;
     std::cin>> n;
-    
+
     std::vector<double> values;
-    
-    for ()
+    values.resize(n+1);
+    std::cout<< "...";
+    for (int i=0; condition; ++i)
 
-
+return values;
 }
 
 
