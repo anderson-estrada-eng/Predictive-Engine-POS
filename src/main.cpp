@@ -31,8 +31,10 @@ std::vector<double> readPolynomial(){
 
     std::vector<double> values;
     values.resize(n+1);
-    std::cout<< "...";
-    for (int i=0; condition; ++i)
+    std::cout<< "the coefficients go here (from the coefficient of x^n down to the constant term)";
+    for (int i=0; i<values ; ++i){
+        std::cin>> values;
+    }
 
 return values;
 }
