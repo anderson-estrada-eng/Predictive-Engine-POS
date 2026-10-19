@@ -67,6 +67,16 @@ int main() {
             
             double freeCapacity = calculateFreeCapacity(demand);
             std::cout << "Operational slack: " << freeCapacity << std::endl;
+
+
+
+
+            std::vector<double> poly = readPolynomial();
+            std::cout << "Coefficients read: " << poly << std::endl;
+
+
+
+
         } 
         else if (choice == 2) {
             double cx, cy, rx, ry, rad;
