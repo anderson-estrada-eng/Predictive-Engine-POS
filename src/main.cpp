@@ -38,6 +38,9 @@ std::vector<double> readPolynomial(){
 return values;
 }
 
+
+
+
 // --- MAIN ENGINE (INTERACTIVE MENU) ---
 
 int main() {
@@ -81,14 +84,16 @@ int main() {
         }
         else{
             std::cout<<"Outside zone";
-        }}
+        }
+    }
 
         else if (choice==3){
             std::vector<double> poly = readPolynomial();
             std::cout << "Coefficients read: " << std::endl;
             for (int i=0; i<poly.size() ; ++i){
                 std::cout<< poly[i];
-            }}
+            }
+        }
 
 
 
