@@ -73,7 +73,8 @@ int main() {
 
             std::vector<double> poly = readPolynomial();
             std::cout << "Coefficients read: " << std::endl;
-            for (int i=0; i<n+1 ; ++i){
+            poly.size(p);
+            for (int i=0; i<p+1 ; ++i){
                 std::cout<< poly[i];
             }
 
