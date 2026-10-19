@@ -30,7 +30,7 @@ std::vector<double> readPolynomial(){
     std::cin>> n; //Here, the user enters the degree of the polynomial.
     std::vector<double> values;
     values.resize(n+1);
-    std::cout<< "the coefficients go here (from the coefficient of x^n down to the constant term)";
+    std::cout<< "the coefficients go here (from the coefficient of x^n down to the constant term)"<< std::endl;
     for (int i=0; i<n+1 ; ++i){
         std::cin>> values[i];
     }
@@ -38,12 +38,6 @@ std::vector<double> readPolynomial(){
 return values;
 }
 
-
-
-
-
-
-    
 // --- MAIN ENGINE (INTERACTIVE MENU) ---
 
 int main() {
@@ -53,6 +47,7 @@ int main() {
         std::cout << "\n=== Predictive POS Engine ===" << std::endl;
         std::cout << "1. Calculate operational slack" << std::endl;
         std::cout << "2. Validate delivery zone" << std::endl;
+        std::cout << "3. Read Polynomial" << std::endl;
         std::cout << "0. Exit" << std::endl;
         std::cout << "Choose an option: ";
         
@@ -67,16 +62,6 @@ int main() {
             
             double freeCapacity = calculateFreeCapacity(demand);
             std::cout << "Operational slack: " << freeCapacity << std::endl;
-
-
-
-
-            std::vector<double> poly = readPolynomial();
-            std::cout << "Coefficients read: " << std::endl;
-            for (int i=0; i<poly.size() ; ++i){
-                std::cout<< poly[i];
-            }
-
 
         } 
         else if (choice == 2) {
@@ -96,16 +81,25 @@ int main() {
         }
         else{
             std::cout<<"Outside zone";
-        }
-        
-            
-        }
+        }}
+
+        else if (choice==3){
+            std::vector<double> poly = readPolynomial();
+            std::cout << "Coefficients read: " << std::endl;
+            for (int i=0; i<poly.size() ; ++i){
+                std::cout<< poly[i];
+            }}
+
+
+
         else if (choice == 0) {
             std::cout << "Shutting down engine..." << std::endl;
         } 
         else {
             std::cout << "Error: Invalid option. Try again." << std::endl;
         }
+
+        
     }
     return 0; 
 
